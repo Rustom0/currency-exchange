@@ -21,9 +21,11 @@ This project fetches exchange rate data from a third-party API
 
 Example API request:
 ```javascript
-fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
-  .then(response => response.json())
-  .then(data => console.log(data));
+const URL = `${BASE_URL}/${toCurr.value}_${fromCurr.value}.json`;
+    let response = await fetch(URL);
+    let data = await response.json();
+    let rate = data.rate;
+    console.log(rate);
 ```
 
 This project uses the Exchange Rate API to fetch currency conversion rates. Special thanks to https://github.com/WoXy-Sensei/currency-api.
